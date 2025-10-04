@@ -300,7 +300,7 @@ export default function App() {
 					</div>
 				</div>
 
-				<p className="text-xs opacity-60">
+				<p className="text-xs opacity-60 text-center">
 					Uses WebRTC data channels via PeerJS. For best results, open
 					both peers over the internet or on different devices. Large
 					files are chunked.

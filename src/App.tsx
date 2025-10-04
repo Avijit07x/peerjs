@@ -228,10 +228,11 @@ export default function App() {
 					</div>
 					<div className="grid sm:grid-cols-[1fr_auto] gap-2">
 						<input
-							className="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 outline-none"
+							className="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 outline-none disabled:cursor-not-allowed"
 							placeholder="Peer ID"
 							value={remoteId}
 							onChange={(e) => setRemoteId(e.target.value)}
+							disabled={connected}
 						/>
 						{!connected ? (
 							<button

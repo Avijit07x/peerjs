@@ -192,34 +192,34 @@ export default function App() {
 				<h1 className="text-3xl font-bold">PeerJS File Share</h1>
 				<div className="rounded-2xl border border-neutral-800 p-4 grid gap-3">
 					<div className="flex flex-wrap items-center gap-3">
-						<div className="px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-sm">
+						<div className="px-3 py-2 max-sm:w-full max-sm:text-center rounded-xl bg-neutral-900 border border-neutral-800 text-sm">
 							{status}
 						</div>
-						<div className="flex items-center gap-2 text-sm">
+						<div className="flex max-sm:flex-col sm:items-center gap-2 text-sm max-sm:w-full ">
 							<span className="opacity-70">Your ID:</span>
-							<code className="px-2 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-xs break-all">
+							<code className="px-2 py-2 max-sm:w-full max-sm:text-center rounded-lg bg-neutral-900 border border-neutral-800 text-xs break-all">
 								{myId || "…"}
 							</code>
 							<button
-								className="px-2 py-1 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs relative"
+								className="px-2 py-2 max-sm:w-full max-sm:text-center rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs relative"
 								onClick={() => copy(myId, "id")}
 								disabled={!myId}
 							>
 								Copy
 								{copied === "id" && (
-									<span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-neutral-800 px-2 py-1 rounded text-xs">
+									<span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-neutral-800 px-2 py-1 rounded text-xs">
 										Copied!
 									</span>
 								)}
 							</button>
 							<button
-								className="px-2 py-1 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs relative"
+								className="px-2 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs relative"
 								onClick={() => copy(link, "link")}
 								disabled={!myId}
 							>
 								Copy Link
 								{copied === "link" && (
-									<span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-neutral-800 px-2 py-1 rounded text-xs">
+									<span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-neutral-800 px-2 py-1 rounded text-xs">
 										Copied!
 									</span>
 								)}
@@ -258,7 +258,7 @@ export default function App() {
 							<h2 className="font-semibold">Send</h2>
 							<input
 								type="file"
-								className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-neutral-800 file:text-neutral-100"
+								className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-neutral-800 file:text-neutral-100 "
 								onChange={(e) =>
 									setFile(e.target.files?.[0] || null)
 								}

@@ -122,6 +122,10 @@ export default function App() {
 
 	function connect() {
 		if (!peerRef.current || !remoteId) return;
+		if (myId === remoteId) {
+			setStatus("Cannot connect to self");
+			return;
+		}
 		setStatus("Connecting…");
 		const c = peerRef.current.connect(remoteId, { reliable: true });
 		c.on("open", () => wireConnection(c));
@@ -187,7 +191,7 @@ export default function App() {
 	}
 
 	return (
-		<div className="min-h-screen w-full bg-neutral-950 text-neutral-100 flex items-center justify-center p-6">
+		<div className="min-h-screen w-full bg-neutral-950 text-neutral-100 flex items-center justify-center p-4">
 			<div className="w-full max-w-3xl grid gap-6">
 				<h1 className="text-3xl font-bold">PeerJS File Share</h1>
 				<div className="rounded-2xl border border-neutral-800 p-4 grid gap-3">
@@ -198,7 +202,7 @@ export default function App() {
 						<div className="flex max-sm:flex-col sm:items-center gap-2 text-sm max-sm:w-full ">
 							<span className="opacity-70">Your ID:</span>
 							<code className="px-2 py-2 max-sm:w-full max-sm:text-center rounded-lg bg-neutral-900 border border-neutral-800 text-xs break-all">
-								{myId || "…"}
+								{myId || "Generating..."}
 							</code>
 							<button
 								className="px-2 py-2 max-sm:w-full max-sm:text-center rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs relative"
